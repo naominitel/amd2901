@@ -117,7 +117,6 @@ architecture structural of cpu is
 
     component mux_out port (
         command : in std_logic_vector (2 downto 0);
-        noe     : in std_logic;
         ram     : in std_logic_vector (3 downto 0);
         alu     : in std_logic_vector (3 downto 0);
         output  : out std_logic_vector (3 downto 0);
@@ -206,7 +205,6 @@ begin
 
      mux_s: mux_out port map (
         command     => i_from_pads (8 downto 6),
-        noe         => noe_from_pads,
         ram         => ram_a,
         alu         => alu_out,
         output      => y_to_pads,
