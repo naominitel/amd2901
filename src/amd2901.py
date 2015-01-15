@@ -56,38 +56,35 @@ class amd_chip(Model):
         y_oe          = Signal ("y_oe",          1)
         self.ckc      = Signal ("ckc",           1)
 
-        self.coeur = Inst(
-            "cpu", "coeur0",
-            map = {
-                'cin_from_pads' : cin_from_pads,
-                'cout_to_pads'  : cout_to_pads,
-                'np_to_pads'    : np_to_pads,
-                'ng_to_pads'    : ng_to_pads,
-                'ovr_to_pads'   : ovr_to_pads,
-                'f3_to_pads'    : f3_to_pads,
-                'zero_to_pads'  : zero_to_pads,
-                'shift_r'       : shift_r,
-                'shift_l'       : shift_l,
-                'r0_to_pads'    : r0_to_pads,
-                'r3_to_pads'    : r3_to_pads,
-                'r0_from_pads'  : r0_from_pads,
-                'r3_from_pads'  : r3_from_pads,
-                'q0_to_pads'    : q0_to_pads,
-                'q3_to_pads'    : q3_to_pads,
-                'q0_from_pads'  : q0_from_pads,
-                'q3_from_pads'  : q3_from_pads,
-                'ck'            : self.ckc,
-                'a_from_pads'   : a_from_pads,
-                'b_from_pads'   : b_from_pads,
-                'd_from_pads'   : d_from_pads,
-                'i_from_pads'   : i_from_pads,
-                'y_to_pads'     : y_to_pads,
-                'noe_from_pads' : noe_from_pads,
-                'y_oe'          : y_oe,
-                'vdd'           : self.vdd,
-                'vss'           : self.vss
-            }
-        )
+        self.coeur = Inst( "core", "core0", map = {
+            'cin_from_pads' : cin_from_pads,
+            'cout_to_pads'  : cout_to_pads,
+            'np_to_pads'    : np_to_pads,
+            'ng_to_pads'    : ng_to_pads,
+            'ovr_to_pads'   : ovr_to_pads,
+            'f3_to_pads'    : f3_to_pads,
+            'zero_to_pads'  : zero_to_pads,
+            'shift_r'       : shift_r,
+            'shift_l'       : shift_l,
+            'r0_to_pads'    : r0_to_pads,
+            'r3_to_pads'    : r3_to_pads,
+            'r0_from_pads'  : r0_from_pads,
+            'r3_from_pads'  : r3_from_pads,
+            'q0_to_pads'    : q0_to_pads,
+            'q3_to_pads'    : q3_to_pads,
+            'q0_from_pads'  : q0_from_pads,
+            'q3_from_pads'  : q3_from_pads,
+            'ck'            : self.ckc,
+            'a_from_pads'   : a_from_pads,
+            'b_from_pads'   : b_from_pads,
+            'd_from_pads'   : d_from_pads,
+            'i_from_pads'   : i_from_pads,
+            'y_to_pads'     : y_to_pads,
+            'noe_from_pads' : noe_from_pads,
+            'y_oe'          : y_oe,
+            'vdd'           : self.vdd,
+            'vss'           : self.vss
+        })
 
         self.p_ck = Inst(
             "pck_px", "p_ck",

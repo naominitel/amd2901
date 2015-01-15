@@ -24,6 +24,9 @@ class Entity(Model):
     def nand(self, inputs, output, strength = 1):
         return self.many_to_one('na', inputs, output, strength, pin_out = 'nq')
 
+    def and_(self, inputs, output, strength = 2):
+        return self.many_to_one('a', inputs, output, strength)
+
     def inv(self, input, output, strength = 1):
         return self.gate("inv_x%d" % strength, {'i': input, 'nq': output})
 
